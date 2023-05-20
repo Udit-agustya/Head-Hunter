@@ -15,7 +15,7 @@ require('dotenv').config();
 let databaseUsername = process.env.DB_USERNAME;
 let databasePassword = process.env.DB_PASS;
 mongoose
-	.connect('mongodb+srv://adminshubham:admin@headhuntersdb.mqdpx6o.mongodb.net/?retryWrites=true&w=majority')
+	.connect(`mongodb+srv://${databaseUsername}:${databasePassword}@cluster0.eajse8n.mongodb.net/?retryWrites=true&w=majority`)
 	.then(function() {
 		console.log('db working');
 	})
