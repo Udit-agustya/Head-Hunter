@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+
+<div style="height: 6rem; width: 100%; background: none;"></div>
+
+
+<a href="/notifications/new" class="btn btn-danger">add a new notif</a>
+<% for( let notif of allNotifs ) { %>
+<div>
+    body: <%= notif.body.slice(0, 5) %>..., author: <%= notif.author %>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left"
+        title="<%= notif.body %>">Read More</button>
+    <form action="/notifications/<%= notif._id %>?_method=DELETE" method="post">
+        <input type="submit" value="delete">
+    </form>
+</div>
+<% } %>
+
+<script>
+    const myNav = document.querySelector(".navbar");
+    myNav.classList.add("scrolled");
+</script>
+<%- include('./partials/footer.ejs') %>
